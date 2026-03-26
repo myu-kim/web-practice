@@ -16,24 +16,32 @@
 
             <section class="topic">
                 <p class="instruction">어떤 선택을 대신 해 드릴까요?</p>
-                <input class="input-bar" type="text" placeholder="양자택일이 가능해야 좋아요" />
-                <button id="topic-button" class="input-button" type="button">↵</button>
+                <form class="input-form" id="topic-form">
+                    <input class="input-bar" id="topic-bar" type="text" placeholder="양자택일이 가능해야 좋아요" />
+                    <button class="input-button" id="topic-button" type="button">↵</button>
+                </form>
             </section>
 
             <section class="option">
                 <p class="instruction">고민 중인 선택지 두 개를 알려주세요</p>
-                <input class="input-bar" type="text" placeholder="선택지 1" />
-                <input class="input-bar" type="text" placeholder="선택지 2" />
-                <button id="option-button" class="input-button" type="button">↵</button>
+                <form class="input-form" id="option1-form">
+                    <input class="input-bar" id="option1-bar" type="text" placeholder="선택지 1" />
+                    <button class="input-button" id="option1-button" type="button">↵</button>
+                </form>
+                <form class="input-form" id="option2-form">
+                    <input class="input-bar" id="option2-bar" type="text" placeholder="선택지 2" />
+                    <button class="input-button" id="option2-button" type="button">↵</button>
+                </form>
             </section>
+                
 
             <section class="weight">
                 <p class="instruction">지금 어떤 선택지가 더 끌리시나요?</p>
-                <div class="slider">
+                <form class="range-form" id="range-form">
                     <p class="this">이쪽</p>
-                    <input class="range-bar" type="range" min="1" max="10" value="5"/>
+                    <input class="range-bar" type="range" min="0" max="10" value="5"/>
                     <p class="this">이쪽</p>
-                </div>
+                </form>
             </section>
 
             <section class="submit">
@@ -41,11 +49,13 @@
             </section>
 
             <section class="loading">
-                <p class="loading-comment">저의 선택은...</p>
+                <!-- <p class="loading-comment">저의 선택은...</p> -->
             </section>
 
             <section class="result">
             </section>
         </div>
+
+        <script src="script.js"></script>
     </body>
 </html>
