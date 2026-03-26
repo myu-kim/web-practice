@@ -1,0 +1,326 @@
+:root {
+    --background: #171717;
+    --white: #ffffff;
+    --blue: #788eff;
+    --gray: #929292;
+    --focus: #d8d5d5;
+    --white-30: rgba(255, 255, 255, 0.3);
+    --blue-hover: #8ea0ff;
+    --blue-active: #6a80ef;
+
+    --radius-small: 10px;
+    --radius-large: 20px;
+
+    --height-default: 45px;
+    --font-size-default: 16px;
+    --line-height-default: 1.5;
+
+    --max-width: 560px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 30px;
+    min-width: 320px;
+    display: grid;
+    place-items: center;
+    background-color: var(--background);
+    font-family: "Pretendard", "Noto Sans KR", system-ui, sans-serif;
+    line-height: var(--line-height-default);
+}
+
+.app {
+    width: min(var(--max-width), 100%);
+    background-color: var(--background);
+    padding: 30px;
+}
+
+.header {
+    display: grid;
+    place-items: center;
+}
+
+.title {
+    text-align: center;
+    color: var(--white);
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.highlight {
+    color: var(--blue);
+    font-size: 40px;
+}
+
+.topic {
+    margin-top: 20px;
+    display: grid;
+    align-items: center;
+}
+
+.instruction {
+    text-align: center;
+    color: var(--white);
+    font-size: var(--font-size-default);
+    line-height: var(--line-height-default);
+}
+
+.input-form {
+    position: relative;
+}
+
+.input-bar {
+    width: 100%;
+    height: 45px;
+    padding: 0 40px 0 15px;
+    border: none;
+    border-radius: var(--radius-large);
+    background-color: var(--white);
+    color: var(--background);
+    font-size: var(--font-size-default);
+    transition: box-shadow 0.2s ease;
+}
+
+.input-bar::placeholder {
+    color: var(--gray);
+}
+
+.input-bar:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(207, 207, 225, 0.2);
+}
+
+.input-button {
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    transform: translateY(-50%);
+    padding: 5px;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--background);
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.input-button:hover {
+    color: var(--gray);
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.input-button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(120, 142, 255, 0.25);
+}
+
+.input-button:active {
+    transform: translateY(-50%) scale(0.92);
+}
+
+.option {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+    align-items: center;
+}
+
+.option .instruction {
+    grid-column: 1 / -1;
+}
+
+.weight {
+    margin-top: 40px;
+    display: grid;
+    align-items: center;
+}
+
+.range-form {
+    display: grid;
+    grid-template-columns: auto 2fr auto;
+    gap: 0 20px;
+    align-items: center;
+}
+
+.this {
+    border-color: transparent;
+    background-color: transparent;
+    text-align: center;
+    color: var(--white);
+    font-size: var(--font-size-default);
+}
+
+.range-bar {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.range-bar:hover {
+    opacity: 0.95;
+}
+
+.range-bar:focus {
+    outline: none;
+}
+
+.range-bar::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 999px;
+    background-color: var(--white-30);
+}
+
+.range-bar::-webkit-slider-thumb {
+    width: 21px;
+    height: 21px;
+    margin-top: -7.5px;
+    border: none;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    background-color: var(--blue);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.range-bar::-moz-range-track {
+    height: 6px;
+    border: none;
+    border-radius: 999px;
+    background-color: var(--white-30);
+}
+
+.range-bar::-moz-range-thumb {
+    width: 21px;
+    height: 21px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--blue);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.range-bar::-moz-range-progress {
+    height: 6px;
+    border-radius: 999px;
+    background-color: var(--white-30);
+}
+
+.range-bar:hover::-webkit-slider-thumb {
+    background-color: var(--blue-hover);
+}
+
+.range-bar:hover::-moz-range-thumb {
+    background-color: var(--blue-hover);
+}
+
+.range-bar:active::-webkit-slider-thumb {
+    transform: scale(1.05);
+    background-color: var(--blue-active);
+}
+
+.range-bar:active::-moz-range-thumb {
+    transform: scale(1.05);
+    background-color: var(--blue-active);
+}
+
+.range-bar:focus-visible::-webkit-slider-thumb {
+    box-shadow: 0 0 0 4px rgba(120, 142, 255, 0.2);
+}
+
+.range-bar:focus-visible::-moz-range-thumb {
+    box-shadow: 0 0 0 4px rgba(120, 142, 255, 0.2);
+}
+
+.submit {
+    margin-top: 60px;
+    display: grid;
+    place-items: center;
+}
+
+.submit-button {
+    width: 124px;
+    height: 45px;
+    border: none;
+    border-radius: var(--radius-large);
+    background-color: var(--blue);
+    text-align: center;
+    color: var(--white);
+    font-size: var(--font-size-default);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: var(--blue-hover);
+}
+
+.submit-button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(120, 142, 255, 0.2);
+}
+
+.submit-button:active {
+    transform: scale(0.98);
+    background-color: var(--blue-active);
+}
+
+.loading, .result {
+    margin-top: 60px;
+    display: grid;
+    place-items: center;
+}
+
+.loading-comment, .result-comment {
+    text-align: center;
+    color: var(--blue);
+    font-size: 26px;
+    line-height: 1.3;
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 20px;
+    }
+
+    .app {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .highlight {
+        font-size: 34px;
+    }
+
+    .option {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .range-form {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .this {
+        font-size: 14px;
+    }
+
+    .range-bar {
+        order: -1;
+    }
+}
