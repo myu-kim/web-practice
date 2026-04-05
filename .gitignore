@@ -16,3 +16,6 @@ Icon[]
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+# JetBrains IDEs General
+.idea/*
