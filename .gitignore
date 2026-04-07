@@ -19,3 +19,6 @@ Icon[]
 
 # JetBrains IDEs General
 .idea/*
+
+# SQLite
+*.db
