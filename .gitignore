@@ -20,5 +20,11 @@ Icon[]
 # JetBrains IDEs General
 .idea/*
 
+# Python General
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
 # SQLite
 *.db
