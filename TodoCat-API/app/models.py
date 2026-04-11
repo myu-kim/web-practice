@@ -7,10 +7,3 @@ class Task(Base):
     id = Column(Integer, primary_key=True)
     content = Column(String, nullable=False)
     done = Column(Boolean, nullable=False)
-
-# class Cat(Base):
-#     __tablename__ = "cats"
-#
-#     id = Column(Integer, primary_key=True)
-#     content = Column(String, nullable=False)
-#     done = Column(Boolean, nullable=False)
