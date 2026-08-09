@@ -5,13 +5,13 @@ from google.adk.tools import BaseTool, ToolContext
 
 async def block_unknown_category(tool: BaseTool, args: dict[str, Any], tool_context: ToolContext) -> dict | None:
     """
-    Checks if 'create_ticket' is called with the category argument 'unknown'.
+    Checks if 'create_ticket' is called with the category argument 'non-it'.
     If so, blocks the tool executions and returns a specific error dictionary.
     Otherwise, allows the tool call to proceed by returning None.
     """
     tool_name = tool.name
     target_tool_name = "create_ticket"
-    blocked_category = "unknown"
+    blocked_category = "non-it"
 
     if tool_name == target_tool_name and args.get("category") == blocked_category:
         return {

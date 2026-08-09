@@ -48,16 +48,26 @@ async def update_ticket_id(session_id: str, ticket_id: str):
         },
     )
 
-async def find_ticket_id(session_id: str) -> str | None:
+async def find_chat_result(session_id: str) -> tuple[str | None, str | None, str | None]:
     session = await chat_sessions.find_one(
         {"session_id": session_id},
-        {"_id": 0 , "ticket_id": 1},
+        {"_id": 0, "category": 1, "ticket_id": 1, "messages": 1},
     )
 
     if session is None:
-        return None
+        return None, None, None
 
-    return session.get("ticket_id")
+    tool_result = next(
+        (
+            message.get("content")
+            for message in reversed(session.get("messages", []))
+            if message.get("role") == RoleEnum.TOOL
+            and isinstance(message.get("content"), str)
+        ),
+        None,
+    )
+
+    return session.get("category"), session.get("ticket_id"), tool_result
 
 async def find_faq_answer(category: str, keywords: list[str]) -> str | None:
     if category not in {enum.value for enum in CategoryEnum}:

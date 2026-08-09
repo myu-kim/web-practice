@@ -14,6 +14,7 @@ class CategoryEnum(str, Enum):
     SECURITY = "security"
     ACCESS = "access"
     UNKNOWN = "unknown"
+    NONIT = "non-it"
 
 
 class RoleEnum(str, Enum):
